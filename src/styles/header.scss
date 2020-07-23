@@ -1,3 +1,9 @@
+@mixin convert {
+	height: 38%;
+	width: 112%;
+	margin-left: -8%;
+}
+
 .header{
 	display: flex;
 	justify-content: space-around;
@@ -27,6 +33,7 @@
 	justify-content: space-evenly;
 	width: 40%;
 	margin-left: 30%;
+	padding-top: 0.2%;
 }
 
 .quantity{
@@ -34,4 +41,32 @@
 	height: 120px;
 	border-radius: 5%;
 	border-style: none;
+	p{
+		margin-bottom: 1%;
+		color: grey;
+	}
+}
+
+.type{
+	margin-top: 5%;
+	margin-left: 32.5%;
+}
+
+.choose-type{
+	margin-top: -1%;
+}
+
+.conversion{
+	padding-top: 5%;
+	input{
+		@include convert();
+		border-color: 1px solid grey;
+	}
+	select{
+		@include convert();
+		width: 116%;
+	}
+	p{
+		margin-left: -7%;
+	}
 }
