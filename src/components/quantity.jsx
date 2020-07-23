@@ -4,9 +4,7 @@ class Quantity extends Component{
 	render(){
 		const item=this.props;
 		return(
-			<div>
-				<button><img src={item.icon}></img></button>
-			</div>
+			<button className='quantity'><img src={item.icon}></img></button>
 		)
 	}
 }

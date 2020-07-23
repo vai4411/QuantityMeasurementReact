@@ -12,9 +12,11 @@ function App() {
     <div>
       <Header name='Quanment' link='History'/>
       <Welcome msg='Welcome To Quantity Measurement' />
+      <div className='quantity-button'>
       <Quantity icon={Scale}/>
       <Quantity icon={Hot}/>
       <Quantity icon={Beaker}/>
+      </div>
     </div>
   );
 }
