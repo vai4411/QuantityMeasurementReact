@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/header';
 import Welcome from './components/welcome';
 import Quantity from './components/quantity';
 import Type from './components/type';
-import Convertion from './components/conversion';
 import './styles/header.scss';
 import Scale from './asserts/scale-1.svg';
 import Hot from './asserts/hot.svg';
 import Beaker from './asserts/beaker-1.svg';
 
-function App() {
+class App extends React.Component {
+
+  render(){
+    var Units = [{
+      unit:'Length',
+      icon: Scale,
+      subunits:['cm','m']
+    },
+    {
+      unit:'Tempreture',
+      icon: Hot,
+      subunits:['c','f']},
+      {
+        unit:'Volume',
+        icon: Beaker,
+        subunits:['kg','gram']
+      }];
   return (
     <div>
       <Header name='Quanment' link='History'/>
@@ -18,16 +33,13 @@ function App() {
       <Type msg='CHOOSE TYPE'/>
       </div>
       <div className='quantity-button'>
-      <Quantity icon={Scale} desc='Length'/>
-      <Quantity icon={Hot} desc='Temperature'/>
-      <Quantity icon={Beaker} desc='Volume'/>
+        <Quantity units={Units} />
       </div>
       <div className='quantity-button'>
-      <Convertion id='FROM' />
-      <Convertion id='TO'/>
       </div>
     </div>
   );
+  }
 }
 
 export default App;
