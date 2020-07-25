@@ -27,8 +27,7 @@ class Quantity extends Component{
 			return(
 			<div>
 			<button className='quantity' onClick={this.changeSubunit.bind(this,index)}>
-			<img class='image' src={data.icon}></img>
-			<p>{data.unit}</p>
+			<img class='image' src={data.icon[this.state.count]}></img>
 			</button>
 			</div>
 		);
