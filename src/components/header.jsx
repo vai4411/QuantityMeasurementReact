@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 function header() {
 	return(
-		<div>
-		<Link to='/'>
-		<h1>Quanment</h1>
+		<div className='header'>
+		<Link to='/' >
+		<a href>Quanment</a>
 		</Link>
 		<Link to='/history'>
 		<li>History</li>
