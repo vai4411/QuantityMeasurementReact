@@ -30,28 +30,30 @@
 
 .welcome{
 	display: flex;
-	background-color: #446DFF;
+	background-color: $blue;
 	justify-content: center;
 	font-size: 160%;
-	color: #ffffff;
+	color: $white;
 }
 
 .quantity-button{
 	display: flex;
-	justify-content: center;
+	// justify-content: center;
 	justify-content: space-evenly;
-	width: 40%;
-	margin-left: 30%;
+	width: 50%;
+	margin-left: 25%;
 	padding-top: 0.2%;
 }
 
 .quantity{
-	width: 140px;
-	height: 120px;
+	width: 150px;
+	height: 140px;
+	// padding: 15%;
 	border-radius: 5%;
 	border-style: none;
 	background-color: transparent;
 	background-image: './assert/beaker.svg';
+	// width: inherit;
 	p{
 		margin-bottom: 1%;
 		color: grey;

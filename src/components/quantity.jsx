@@ -6,13 +6,15 @@ class Quantity extends Component{
 	constructor(props){
 		super(props)
 		this.state={
-		  subunit : this.props.units[0].subunits
+		  subunit : this.props.units[0].subunits,
+		  count : 0
 		}
 	  }
 
 	  changeSubunit = (id) => {
 		  this.setState({
-			  subunit : this.props.units[id].subunits
+			  subunit : this.props.units[id].subunits,
+			  count : id
 		  })
 	  }
 
@@ -20,8 +22,9 @@ class Quantity extends Component{
 		console.log(this.props);
 		return(
 			<div>
-		{this.props.units.map((data,index) => {
-		return(
+			<div  className='quantity-button'>
+			{this.props.units.map((data,index) => {
+			return(
 			<div>
 			<button className='quantity' onClick={this.changeSubunit.bind(this,index)}>
 			<img class='image' src={data.icon}></img>
@@ -32,6 +35,7 @@ class Quantity extends Component{
 		}
 		)
 	}
+	</div>
 	<div className='quantity-button'>
 	<Conversion unit={this.state.subunit}/>
 	<Conversion unit={this.state.subunit}/>
