@@ -7,6 +7,8 @@ import './styles/header.scss';
 import Scale from './asserts/scale-1.svg';
 import Hot from './asserts/hot.svg';
 import Beaker from './asserts/beaker-1.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import History from './components/history';
 
 class App extends React.Component {
 
@@ -14,20 +16,22 @@ class App extends React.Component {
     var Units = [{
       unit:'Length',
       icon: Scale,
-      subunits:['cm','m']
+      subunits:['Kilometer','Meters','Centimeter','Millimeter','Micrometer','Mile','Foot','Inch']
     },
     {
       unit:'Tempreture',
       icon: Hot,
-      subunits:['c','f']},
+      subunits:['Celsius','Fahrenheit','Kelvin']},
       {
         unit:'Volume',
         icon: Beaker,
-        subunits:['kg','gram']
+        subunits:['Litres','Millilitres','Gallons']
       }];
   return (
     <div>
-      <Header name='Quanment' link='History'/>
+      <Router>
+      <Header name='Quanment'/>
+      <History />
       <Welcome msg='Welcome To Quantity Measurement' />
       <div className='choose-type'>
       <Type msg='CHOOSE TYPE'/>
@@ -35,8 +39,7 @@ class App extends React.Component {
       <div className='quantity-button'>
         <Quantity units={Units} />
       </div>
-      <div className='quantity-button'>
-      </div>
+      </Router>
     </div>
   );
   }
