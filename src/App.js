@@ -9,6 +9,8 @@ import Hot from './asserts/hot.svg';
 import Beaker from './asserts/beaker-1.svg';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import History from './components/history';
+import HistoryDetails from './components/historyContent';
+import ConversionContainer from './components/conversionContainer';
 
 class App extends React.Component {
 
@@ -33,12 +35,18 @@ class App extends React.Component {
       <Header name='Quanment'/>
       <History />
       <Welcome msg='Welcome To Quantity Measurement' />
+      <Switch>
+      <Route path='/' exact render={() =>
+      <div>
       <div className='choose-type'>
-      <Type msg='CHOOSE TYPE'/>
-      </div>
-      <div className='quantity-button'>
-        <Quantity units={Units} />
-      </div>
+        <Type msg='CHOOSE TYPE'/>
+        </div>
+        <div className='quantity-button'>
+          <Quantity units={Units} />
+        </div>
+      </div>}/>
+      <Route path='/history' exact component={HistoryDetails} />
+      </Switch>
       </Router>
     </div>
   );
