@@ -131,3 +131,126 @@ th{
 	width: 23vw;
 	height: 2.5vw;
 }
+
+@media only screen and (max-width: 608px) {
+	.welcome{
+		display: flex;
+		p{
+			margin-left: 20%;
+		}
+	}
+
+	.conversion{
+		select{
+			margin-left: -0.1%;
+		}
+	}
+  }
+
+  @media only screen and (max-width: 568px) {
+	  .main-window{
+		  height:100%;
+	  }
+	  .header{
+		  li{
+		  margin-left: -200%;
+		  }
+	  }
+	  .welcome{
+		  p{
+			  margin-left: 12%;
+		  }
+	  }
+	  .choose-type{
+		  margin-left: 11%;
+	  }
+	  .quantity-button{
+		  flex-direction: column;
+		  margin-left: 35%;
+	  }
+	  .conversion{
+		  input{
+			  width: 28vw;
+		  }
+		  select{
+			  width: 33.5vw;
+			  font-size: 60%;
+		  }
+	  }
+  }
+
+  @media only screen and (max-width: 475px){
+	.welcome{
+		P{
+			margin-left: 7%;
+		}
+	}
+	.conversion{
+		input{
+			width: 31vw;
+		}
+		select{
+			width: 37vw;
+			font-size: 60%;
+		}
+	}
+  }
+
+  @media only screen and (max-width: 475px){
+	  .welcome{
+		  text-align: center;
+	  }
+	  .quantity-button{
+		margin-left: 26%;
+	  }
+	  .conversion{
+		  select{
+			  width: 37.5vw;
+		  }
+	  }
+  }
+
+  @media only screen and (max-width: 422px){
+	  .conversion{
+		  width: 105%;
+		  input{
+			  width: 65%;
+		  }
+		  select{
+		  width: 78%;
+	  }
+	}
+  }
+
+  @media only screen and (max-width: 393px){
+	  .conversion{
+		  input{
+			  width: 70%;
+		  }
+		  select{
+			  width: 84%;
+		  }
+	  }
+  }
+
+  @media only screen and (max-width: 375px){
+	.conversion{
+		input{
+			width: 73%;
+		}
+		select{
+			width: 88%;
+		}
+	}
+}
+
+@media only screen and (max-width: 375px){
+	.conversion{
+		input{
+			width: 85%;
+		}
+		select{
+			width: 690vw;
+		}
+	}
+}

@@ -37,7 +37,7 @@ class App extends React.Component {
       <Welcome msg='Welcome To Quantity Measurement' />
       <Switch>
       <Route path='/' exact render={() =>
-      <div>
+      <div >
       <div className='choose-type'>
         <Type msg='CHOOSE TYPE'/>
         </div>
