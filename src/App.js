@@ -31,7 +31,7 @@ class App extends React.Component {
         subunits:['Litres','Millilitres','Gallons']
       }];
   return (
-    <div>
+    <div className='main-window'>
       <Router>
       <Header />
       <Welcome msg='Welcome To Quantity Measurement' />

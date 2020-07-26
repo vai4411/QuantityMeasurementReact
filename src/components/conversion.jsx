@@ -4,6 +4,7 @@ class Conversion extends Component{
 	render(){
 		return(
 			<div className='conversion'>
+				<p>{this.props.heading}</p>
 			<input></input>
 			<select>
 			{this.props.unit.map((data) => {

@@ -25,6 +25,11 @@ function historyContent(){
 
 	return(
 		<div>
+			<th>BASEUNIT</th>
+			<th>FROM</th>
+			<th>TO</th>
+			<th>VALUE</th>
+			<th>RESULT</th>
 		{history.map((data) =>
 		<div>
 			<td>{data.baseunit}</td>

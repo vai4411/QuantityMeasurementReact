@@ -36,8 +36,8 @@ class Quantity extends Component{
 	}
 	</div>
 	<div className='quantity-button'>
-	<Conversion unit={this.state.subunit}/>
-	<Conversion unit={this.state.subunit}/>
+	<Conversion heading='FROM' unit={this.state.subunit}/>
+	<Conversion heading='TO' unit={this.state.subunit}/>
 	</div>
 	</div>
 		);
