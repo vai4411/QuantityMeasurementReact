@@ -7,7 +7,7 @@ class Quantity extends Component{
 		super(props)
 		this.state={
 		  subunit : this.props.units[0].subunits,
-		  count : 0
+		  count : 0,
 		}
 	  }
 
@@ -19,29 +19,21 @@ class Quantity extends Component{
 	  }
 
 	render(){
-		console.log(this.props);
 		return(
 			<div>
-			<div  className='quantity-button'>
-			{this.props.units.map((data,index) => {
-			return(
-			<div>
-			<button className='quantity' onClick={this.changeSubunit.bind(this,index)}>
-			<img class='image' src={data.icon[this.state.count]}></img>
-			</button>
+			<div className='quantity-button'>
+			<div className='length' tabIndex='0' onClick={() => this.changeSubunit(0)}>
+			</div>
+			<div className='tempreture' tabIndex='0' onClick={() => this.changeSubunit(1)}></div>
+			<div className='volume' tabIndex='0' onClick={() => this.changeSubunit(2)}></div>
+			</div>
+			<div className='quantity-button'>
+			<Conversion heading='FROM' unit={this.state.subunit}/>
+			<Conversion heading='TO' unit={this.state.subunit}/>
+			</div>
 			</div>
 		);
-		}
-		)
 	}
-	</div>
-	<div className='quantity-button'>
-	<Conversion heading='FROM' unit={this.state.subunit}/>
-	<Conversion heading='TO' unit={this.state.subunit}/>
-	</div>
-	</div>
-		);
-}
 }
 
 export default Quantity;

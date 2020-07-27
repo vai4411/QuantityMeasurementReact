@@ -55,6 +55,63 @@
 	margin-left: 25%;
 }
 
+.length{
+	background-image: url('../asserts/test/scale.png');
+	background-repeat: no-repeat;
+	width: 12.9vw;
+	height: 10vw;
+}
+
+.length:focus{
+	background-image: url('../asserts/test/scale1.png');
+	background-repeat: no-repeat;
+	outline: none;
+}
+
+.length:hover{
+	background-image: url('../asserts/test/scale1.png');
+	background-repeat: no-repeat;
+	outline: none;
+}
+
+.tempreture{
+	background-image: url('../asserts/test/hot.png');
+	background-repeat: no-repeat;
+	width: 12.9vw;
+	height: 10vw;
+}
+
+.tempreture:focus{
+	background-image: url('../asserts/test/hot1.png');
+	background-repeat: no-repeat;
+	outline: none;
+}
+
+.tempreture:hover{
+	background-image: url('../asserts/test/hot1.png');
+	background-repeat: no-repeat;
+	outline: none;
+}
+
+.volume{
+	background-image: url('../asserts/test/beaker.png');
+	background-repeat: no-repeat;
+	width: 12.9vw;
+	height: 10vw;
+}
+
+.volume:focus{
+	background-image: url('../asserts/test/beaker1.png');
+	background-repeat: no-repeat;
+	outline: none;
+}
+
+.volume:hover{
+	background-image: url('../asserts/test/beaker1.png');
+	background-repeat: no-repeat;
+	outline: none;
+}
+
 .quantity{
 	width: fit-content;
 	border-style: none;
