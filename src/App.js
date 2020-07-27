@@ -18,19 +18,19 @@ class App extends React.Component {
   render(){
     var Units = [{
       unit:'Length',
-      icon: [Scale1,Scale,Scale],
+      icon:Scale1,
       subunits:['Kilometer','Meters','Centimeter','Millimeter','Micrometer','Mile','Foot','Inch']
     },
     {
       unit:'Tempreture',
-      icon: [Hot,Hot1,Hot],
+      icon:Hot1,
       subunits:['Celsius','Fahrenheit','Kelvin']},
       {
         unit:'Volume',
-        icon: [Beaker,Beaker,Beaker1],
+        icon:Beaker1,
         subunits:['Litres','Millilitres','Gallons']
       }];
-      
+
   return (
     <div className='main-window'>
       <Router>
