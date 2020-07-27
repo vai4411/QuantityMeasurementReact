@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Conversion from './conversion';
 
-class Quantity extends Component{
+class QuantityButtons extends Component{
 
 
 	constructor(props){
@@ -29,6 +29,9 @@ class Quantity extends Component{
 
 		return(
 			<div>
+				<div className='type'>
+		<p>CHOOSE TYPE</p>
+	</div>
 			<div className='quantity-button'>
 			<div className='length' tabIndex='0' onClick={() => this.changeSubunit(0)}>
 				{result}
@@ -45,4 +48,4 @@ class Quantity extends Component{
 	}
 }
 
-export default Quantity;
+export default QuantityButtons;

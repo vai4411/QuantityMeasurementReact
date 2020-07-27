@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import Header from './components/header';
 import Welcome from './components/welcome';
-import Quantity from './components/quantity';
-import Type from './components/type';
+import Quantity from './components/quantityButtons';
 import './styles/header.scss';
-import Scale from './asserts/test/scale.png';
-import Hot from './asserts/test/hot.png';
-import Beaker from './asserts/test/beaker.png';
 import Scale1 from './asserts/test/scale1.png';
 import Hot1 from './asserts/test/hot1.png';
 import Beaker1 from './asserts/test/beaker1.png';
@@ -40,7 +36,6 @@ class App extends React.Component {
       <Route path='/' exact render={() =>
       <div >
       <div className='choose-type'>
-        <Type msg='CHOOSE TYPE'/>
         </div>
         <div>
           <Quantity units={Units} />
