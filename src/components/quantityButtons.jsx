@@ -28,6 +28,40 @@ class QuantityButtons extends Component {
       });
   }
 
+  changeSubunit = (id) => {
+    this.fromInput.current.textInput.current.value = "";
+    this.toInput.current.textInput.current.value = "";
+    this.loadSubUnits(id);
+  };
+
+  loadUnits = (url) => {
+    const axios = require("axios");
+    return new Promise(function (resolve, reject) {
+      axios({
+        method: "get",
+        url: url,
+        headers: { "Content-Type": "application/json" },
+      })
+        .then(function (response) {
+          var units = response.data.units;
+          resolve(units);
+        })
+        .catch(function (error) {
+          console.log(error);
+          reject(error);
+        });
+    });
+  };
+
+  async loadSubUnits(id) {
+    const val = await this.loadUnits(
+      "http://localhost:8080/quantity/sub_units/" + this.state.data[id]
+    );
+    this.setState({
+      subunit: val,
+    });
+  }
+
   render() {
     return (
       <div>
