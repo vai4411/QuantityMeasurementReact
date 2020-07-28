@@ -10,6 +10,24 @@ class QuantityButtons extends Component {
     this.state = { data: [], subunit: [] };
   }
 
+  componentWillMount() {
+    const url1 = "http://localhost:8080/quantity/base_units";
+    const self = this;
+    const axios = require("axios");
+    axios({
+      method: "get",
+      url: url1,
+      headers: { "Content-Type": "application/json" },
+    })
+      .then(function (response) {
+        baseUnits = response.data.units;
+        self.setState({ data: baseUnits });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
       <div>
