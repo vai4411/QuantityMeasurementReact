@@ -1,3 +1,10 @@
+$active-scale-icon:url('../asserts/scale.svg');
+$inactive-scale-icon:url('../asserts/scale-1.svg');
+$active-hot-icon:url('../asserts/hot-1.svg');
+$inactive-hot-icon:url('../asserts/hot.svg');
+$active-beaker-icon:url('../asserts/beaker.svg');
+$inactive-beaker-icon:url('../asserts/beaker-1.svg');
+
 @import './colors/colorCodes.scss';
 @import './fontStyles/fontStyles.scss';
 
@@ -5,6 +12,55 @@
 	height: 50px;
 	width: 257px;
 	margin-left: 6%;
+}
+
+@mixin  buttonIcon {
+	background-position: center;
+	background-position-y: 35%;
+	background-repeat: no-repeat;
+	width: 11.8vw;
+	height: 10vw;
+	background-color: $white;
+	border-radius: 6%;
+	p{
+		text-align: center;
+		margin-top: 60%;
+		color: $feild-color;
+		font-weight: bolder;
+	}
+}
+
+@mixin scaleIcon {
+	background-image: $active-scale-icon;
+	@include buttonIcon();
+	border: 1px solid $scale-color;
+	outline: none;
+	background-color: $scale-background;
+	p{
+		color: $scale-color;
+	}
+}
+
+@mixin hotIcon {
+	background-image: $active-hot-icon;
+	@include buttonIcon();
+	border: 1px solid $hot-color;
+	outline: none;
+	background-color: $hot-background;
+	p{
+		color: $hot-color;
+	}
+}
+
+@mixin beakerIcon {
+	background-image: $active-beaker-icon;
+	@include buttonIcon();
+	border: 1px solid $beaker-color;
+	outline: none;
+	background-color: $beaker-background;
+	p{
+		color: $beaker-color;
+	}
 }
 
 .main-window{
@@ -47,7 +103,6 @@
 	}
 }
 
-
 .quantity-button{
 	display: flex;
 	justify-content: space-evenly;
@@ -55,61 +110,65 @@
 	margin-left: 25%;
 }
 
-.length{
-	background-image: url('../asserts/test/scale.png');
-	background-repeat: no-repeat;
-	width: 12.9vw;
+.default-button{
+	@include scaleIcon();
+}
+
+img{
+	width: 11.8vw;
 	height: 10vw;
 }
 
-.length:focus{
-	background-image: url('../asserts/test/scale1.png');
-	background-repeat: no-repeat;
-	outline: none;
+.Length{
+	background-image: $inactive-scale-icon;
+	@include buttonIcon();
 }
 
-.length:hover{
-	background-image: url('../asserts/test/scale1.png');
-	background-repeat: no-repeat;
-	outline: none;
+.Length:focus{
+	@include scaleIcon();
 }
 
-.tempreture{
-	background-image: url('../asserts/test/hot.png');
-	background-repeat: no-repeat;
-	width: 12.9vw;
-	height: 10vw;
+.Length:hover{
+	@include scaleIcon();
 }
 
-.tempreture:focus{
-	background-image: url('../asserts/test/hot1.png');
-	background-repeat: no-repeat;
-	outline: none;
+.Temperature{
+	background-image: $inactive-hot-icon;
+	@include buttonIcon();
 }
 
-.tempreture:hover{
-	background-image: url('../asserts/test/hot1.png');
-	background-repeat: no-repeat;
-	outline: none;
+.Temperature:focus{
+	@include hotIcon();
 }
 
-.volume{
-	background-image: url('../asserts/test/beaker.png');
-	background-repeat: no-repeat;
-	width: 12.9vw;
-	height: 10vw;
+.Temperature:hover{
+	@include hotIcon();
 }
 
-.volume:focus{
-	background-image: url('../asserts/test/beaker1.png');
-	background-repeat: no-repeat;
-	outline: none;
+.Volume{
+	background-image: $inactive-beaker-icon;
+	@include buttonIcon();
 }
 
-.volume:hover{
-	background-image: url('../asserts/test/beaker1.png');
-	background-repeat: no-repeat;
-	outline: none;
+.Volume:focus{
+	@include beakerIcon();
+}
+
+.Volume:hover{
+	@include beakerIcon();
+}
+
+.Weight{
+	background-image: $inactive-beaker-icon;
+	@include buttonIcon();
+}
+
+.Weight:focus{
+	@include beakerIcon();
+}
+
+.Weight:hover{
+	@include beakerIcon();
 }
 
 .quantity{

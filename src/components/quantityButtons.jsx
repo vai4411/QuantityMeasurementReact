@@ -1,51 +1,49 @@
-import React, { Component } from 'react'
-import Conversion from './conversion';
+import React, { Component } from "react";
+import Conversion from "./conversion";
 
-class QuantityButtons extends Component{
+var baseUnits = [];
+class QuantityButtons extends Component {
+  constructor(props) {
+    super(props);
+    this.fromInput = React.createRef();
+    this.toInput = React.createRef();
+    this.state = { data: [], subunit: [] };
+  }
 
-
-	constructor(props){
-		super(props)
-		this.state={
-		  subunit : this.props.units[0].subunits,
-		  isSelected : false,
-		}
-	  }
-
-	  changeSubunit = (id) => {
-		  this.setState({
-			  subunit : this.props.units[id].subunits,
-			  isSelected : true
-		  })
-	  }
-
-	render(){
-		var result;
-		if(this.state.isSelected === true){
-		}
-		else{
-			result =<img src={this.props.units[0].icon}></img>
-		}
-
-		return(
-			<div>
-				<div className='type'>
-		<p>CHOOSE TYPE</p>
-	</div>
-			<div className='quantity-button'>
-			<div className='length' tabIndex='0' onClick={() => this.changeSubunit(0)}>
-				{result}
-			</div>
-			<div className='tempreture' tabIndex='0' onClick={() => this.changeSubunit(1)}></div>
-			<div className='volume' tabIndex='0' onClick={() => this.changeSubunit(2)}></div>
-			</div>
-			<div className='quantity-button'>
-			<Conversion heading='FROM' unit={this.state.subunit}/>
-			<Conversion heading='TO' unit={this.state.subunit}/>
-			</div>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <div className="type">
+          <p>CHOOSE TYPE</p>
+        </div>
+        <div className="quantity-button">
+          {this.state.data.map((data, index) => (
+            <div
+              className={data}
+              tabIndex="0"
+              onClick={() => this.changeSubunit(index)}
+            >
+              <p>{data}</p>
+            </div>
+          ))}
+        </div>
+        <div className="quantity-button">
+          <Conversion
+            heading="FROM"
+            unit={this.state.subunit}
+            ref={this.fromInput}
+            result={this.toInput}
+          />
+          <Conversion
+            heading="TO"
+            unit={this.state.subunit}
+            ref={this.toInput}
+            result={this.fromInput}
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default QuantityButtons;
