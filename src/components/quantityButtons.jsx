@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Conversion from "./conversion";
+import Api from "../services/quantityApi";
 
 var baseUnits = [];
 class QuantityButtons extends Component {
@@ -8,6 +9,7 @@ class QuantityButtons extends Component {
     this.fromInput = React.createRef();
     this.toInput = React.createRef();
     this.state = { data: [], subunit: [] };
+    this.api = new Api();
   }
 
   componentWillMount() {
@@ -34,29 +36,8 @@ class QuantityButtons extends Component {
     this.loadSubUnits(id);
   };
 
-  loadUnits = (url) => {
-    const axios = require("axios");
-    return new Promise(function (resolve, reject) {
-      axios({
-        method: "get",
-        url: url,
-        headers: { "Content-Type": "application/json" },
-      })
-        .then(function (response) {
-          var units = response.data.units;
-          resolve(units);
-        })
-        .catch(function (error) {
-          console.log(error);
-          reject(error);
-        });
-    });
-  };
-
   async loadSubUnits(id) {
-    const val = await this.loadUnits(
-      "http://localhost:8080/quantity/sub_units/" + this.state.data[id]
-    );
+    const val = await this.api.loadUnit(this.state.data[id]);
     this.setState({
       subunit: val,
     });

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+const url = "http://localhost:8080/quantity/";
 
 class Api extends React.Component{
 	convert = (fromUnit,quantity,toUnit) => {
 		return axios({
 			method: "post",
-			url: "http://localhost:8080/quantity/convert",
+			url: url + "convert",
 			data: {
 			  firstSubUnit: fromUnit,
 			  quantity: Number(quantity),
@@ -20,7 +21,20 @@ class Api extends React.Component{
 			.catch(function (error) {
 			  console.log(error);
 			});
-			// return "error";
+	}
+
+	loadUnit = (unit) => {
+    	return axios({
+        method: "get",
+        url: url + "sub_units/" + unit,
+        headers: { "Content-Type": "application/json" },
+      })
+        .then(function (response) {
+		return response.data.units;
+        })
+        .catch(function (error) {
+          console.log(error);
+		});
 	}
 }
 
