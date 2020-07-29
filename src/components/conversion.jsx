@@ -1,39 +1,28 @@
 import React, { Component } from "react";
+import Api from '../services/quantityApi';
 
 class Conversion extends Component {
   constructor(props) {
     super(props);
     this.selectInput = React.createRef();
     this.textInput = React.createRef();
-    this.changeInput = this.changeInput.bind(this);
+    this.api = new Api();
   }
 
-  changeInput() {
+  changeInput = () => {
     var quantity = this.textInput.current.value;
     var fromUnit = this.selectInput.current.value;
     var toUnit = this.props.result.current.selectInput.current.value;
-    var result = this.props.result.current.textInput.current;
     console.log(quantity);
     console.log(fromUnit);
     console.log(toUnit);
-    const axios = require("axios");
-    axios({
-      method: "post",
-      url: "http://localhost:8080/quantity/convert",
-      data: {
-        firstSubUnit: fromUnit,
-        quantity: Number(quantity),
-        secondSubUnit: toUnit,
-      },
-      headers: { "Content-Type": "application/json" },
-    })
-      .then(function (response) {
-        console.log(response.data.result);
-        result.value = response.data.result;
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    this.convertUnits(fromUnit,quantity,toUnit);
+  }
+
+  async convertUnits(fromUnit,quantity,toUnit) {
+    const val = await this.api.convert(fromUnit,quantity,toUnit);
+    var result = this.props.result.current.textInput.current;
+    result.value = val;
   }
 
   render() {

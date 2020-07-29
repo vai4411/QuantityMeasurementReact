@@ -86,12 +86,14 @@ class QuantityButtons extends Component {
             ref={this.fromInput}
             result={this.toInput}
           />
+          {console.log(this.toInput)}
           <Conversion
             heading="TO"
             unit={this.state.subunit}
             ref={this.toInput}
             result={this.fromInput}
           />
+          {console.log(this.toInput)}
         </div>
       </div>
     );
