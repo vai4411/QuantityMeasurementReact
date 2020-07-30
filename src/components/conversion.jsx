@@ -7,9 +7,6 @@ class Conversion extends Component {
     this.selectInput = React.createRef();
     this.textInput = React.createRef();
     this.api = new Api();
-    this.state = {
-      disabledUnit: "Feet",
-    };
   }
 
   changeInput = () => {
@@ -20,37 +17,40 @@ class Conversion extends Component {
     console.log(fromUnit);
     console.log(toUnit);
     this.convertUnits(fromUnit, quantity, toUnit);
-    this.setState({
-      disabledUnit: this.selectInput.current.value,
-    });
   };
 
   async convertUnits(fromUnit, quantity, toUnit) {
+    var length = this.props.result.current.selectInput.current.options.length;
+    for (var i = 0; i < length; i++) {
+      var option = this.props.result.current.selectInput.current.options[i];
+      if (fromUnit == option.value) {
+        option.disabled = true;
+        option.selected = false;
+      } else {
+        option.disabled = false;
+      }
+    }
     const val = await this.api.convert(fromUnit, quantity, toUnit);
     var result = this.props.result.current.textInput.current;
     result.value = val;
   }
 
-  disableSubUnit = (unit) => {
-    this.props.disable(unit);
-  };
-
   render() {
     return (
       <div className="conversion">
         <p>{this.props.heading}</p>
-        <input ref={this.textInput} onChange={this.changeInput}></input>
+        <input
+          type="number"
+          ref={this.textInput}
+          onChange={this.changeInput}
+        ></input>
         <select
           ref={this.selectInput}
-          onChange={() => {this.changeInput();
-            this.disableSubUnit(this.selectInput.current.value);}}
+          onChange={() => {
+            this.changeInput();
+          }}
         >
-          {this.props.unit.map((data,index) => {
-            {
-              console.log(this.selectInput.current.value);
-            }
-            if (this.props.disableSelectedUnit === data)
-              return <option disabled>{data}</option>;
+          {this.props.unit.map((data, index) => {
             return <option>{data}</option>;
           })}
         </select>

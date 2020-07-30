@@ -21,6 +21,8 @@ $inactive-weight-icon:url('../asserts/weight.svg');
 	background-repeat: no-repeat;
 	width: 11.8vw;
 	height: 10vw;
+	// width: 300px;
+	// height: 130px;
 	background-color: $white;
 	border-radius: 6%;
 	p{
@@ -28,6 +30,7 @@ $inactive-weight-icon:url('../asserts/weight.svg');
 		margin-top: 60%;
 		color: $feild-color;
 		font-weight: bolder;
+		font-size: 1vw;
 	}
 }
 
@@ -106,7 +109,9 @@ $inactive-weight-icon:url('../asserts/weight.svg');
 
 .quantity-button{
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
+	position: relative;
+	// flex-wrap: wrap-reverse;
 	width: 50%;
 	margin-left: 25%;
 }

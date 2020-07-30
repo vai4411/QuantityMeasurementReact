@@ -10,7 +10,7 @@ class QuantityButtons extends Component {
     this.toInput = React.createRef();
     this.fromSelect = React.createRef();
     this.api = new Api();
-    this.state = { data: [], subunit: [] , disableUnit : "", index : 0};
+    this.state = { data: [], subunit: [], index: 0 };
   }
 
   componentWillMount() {
@@ -18,20 +18,21 @@ class QuantityButtons extends Component {
   }
 
   async loadUnits() {
-    var index = 0;
     const unit = await this.api.loadMainUnit();
-    var subUnit = await this.api.loadUnit('Length');
+    var subUnit = await this.api.loadUnit("Length");
     console.log(unit);
     this.setState({
       data: unit,
-      subunit : subUnit
+      subunit: subUnit,
     });
+    this.shuffleOptions();
   }
 
   changeSubunit = (id) => {
     this.fromInput.current.textInput.current.value = "";
     this.toInput.current.textInput.current.value = "";
     this.loadSubUnits(id);
+    this.shuffleOptions();
   };
 
   async loadSubUnits(id) {
@@ -41,17 +42,26 @@ class QuantityButtons extends Component {
     });
   }
 
-  setDisabledUnit = (unit) => {
-    this.setState({
-      disableUnit : unit
-    })
-  }
-
   toggleClass = (index) => {
-    // const currentState = this.state.active;
-    // var active = this.state.active[index];
-    this.setState({ index : index });
-};
+    this.setState({ index: index });
+  };
+
+  shuffleOptions = () => {
+    var option1 = this.fromInput.current.selectInput.current.options;
+    var option2 = this.toInput.current.selectInput.current.options;
+    if (option1[0].selected) {
+      option2[1].selected = true;
+    }
+    if (option1[1].selected) {
+      option2[0].selected = true;
+    }
+    if (option2[0].selected) {
+      option1[1].selected = true;
+    }
+    if (option2[1].selected) {
+      option1[0].selected = true;
+    }
+  };
 
   render() {
     return (
@@ -64,7 +74,10 @@ class QuantityButtons extends Component {
             <div
               className={data + this.state.index}
               tabIndex="0"
-              onClick={() => {this.toggleClass(index);this.changeSubunit(index);}}
+              onClick={() => {
+                this.toggleClass(index);
+                this.changeSubunit(index);
+              }}
             >
               {console.log(data + index)}
               <p>{data}</p>
@@ -76,8 +89,6 @@ class QuantityButtons extends Component {
           <Conversion
             heading="FROM"
             unit={this.state.subunit}
-            disable={this.setDisabledUnit}
-            disableSelectedUnit={this.state.disableUnit}
             ref={this.fromInput}
             result={this.toInput}
           />
@@ -85,8 +96,6 @@ class QuantityButtons extends Component {
           <Conversion
             heading="TO"
             unit={this.state.subunit}
-            disable={this.setDisabledUnit}
-            disableSelectedUnit={this.state.disableUnit}
             ref={this.toInput}
             result={this.fromInput}
           />
