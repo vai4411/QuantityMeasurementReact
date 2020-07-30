@@ -4,6 +4,7 @@ $active-hot-icon:url('../asserts/hot-1.svg');
 $inactive-hot-icon:url('../asserts/hot.svg');
 $active-beaker-icon:url('../asserts/beaker.svg');
 $inactive-beaker-icon:url('../asserts/beaker-1.svg');
+$inactive-weight-icon:url('../asserts/weight.svg');
 
 @import './colors/colorCodes.scss';
 @import './fontStyles/fontStyles.scss';
@@ -124,50 +125,51 @@ img{
 	@include buttonIcon();
 }
 
-.Length:focus{
+@for $var from 0 to 4 {
+	.Length#{$var} {
+		background-image: $inactive-scale-icon;
+	@include buttonIcon();
+	}
+	.Length#{$var}:hover{@include scaleIcon();}
+}
+
+.Length0{
 	@include scaleIcon();
 }
 
-.Length:hover{
-	@include scaleIcon();
-}
-
-.Temperature{
-	background-image: $inactive-hot-icon;
+@for $var from 0 to 4 {
+	.Temperature#{$var} {
+		background-image:  $inactive-hot-icon;
 	@include buttonIcon();
+	}
+	.Temperature#{$var}:hover{@include hotIcon();}
 }
 
-.Temperature:focus{
+.Temperature3{
 	@include hotIcon();
 }
 
-.Temperature:hover{
-	@include hotIcon();
-}
-
-.Volume{
-	background-image: $inactive-beaker-icon;
+@for $var from 0 to 4 {
+	.Volume#{$var} {
+		background-image: $inactive-beaker-icon;
 	@include buttonIcon();
+	}
+	.Volume#{$var}:hover{@include beakerIcon();}
 }
 
-.Volume:focus{
+.Volume2{
 	@include beakerIcon();
 }
 
-.Volume:hover{
-	@include beakerIcon();
-}
-
-.Weight{
-	background-image: $inactive-beaker-icon;
+@for $var from 0 to 4 {
+	.Weight#{$var} {
+		background-image: $inactive-weight-icon;
 	@include buttonIcon();
+	}
+	.Weight#{$var}:hover{@include beakerIcon();}
 }
 
-.Weight:focus{
-	@include beakerIcon();
-}
-
-.Weight:hover{
+.Weight1{
 	@include beakerIcon();
 }
 
@@ -220,8 +222,6 @@ img{
 		box-sizing: border-box;
 		margin: 0;
 		border: 1px solid $feild-color;
-		appearance: none;
-		background-image: url(https://image.flaticon.com/icons/png/512/60/60995.png);
 		background-repeat: no-repeat, repeat;
 		background-position: right .7em top 50%, 0 0;
 		background-size: .65em auto, 100%;
@@ -229,7 +229,6 @@ img{
 	select:focus {
 		border-color: $feild-color;
 		outline: none;
-		background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTWAfZlQDJF5hFfVu44jp8MthslNwWsMzCIDw&usqp=CAU);
 	}
 	select option {
 		font-weight:600;

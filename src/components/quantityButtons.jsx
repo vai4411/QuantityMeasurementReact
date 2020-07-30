@@ -8,8 +8,9 @@ class QuantityButtons extends Component {
     super(props);
     this.fromInput = React.createRef();
     this.toInput = React.createRef();
-    this.state = { data: [], subunit: [] };
+    this.fromSelect = React.createRef();
     this.api = new Api();
+    this.state = { data: [], subunit: [] , disableUnit : "", index : 0};
   }
 
   componentWillMount() {
@@ -17,10 +18,13 @@ class QuantityButtons extends Component {
   }
 
   async loadUnits() {
+    var index = 0;
     const unit = await this.api.loadMainUnit();
+    var subUnit = await this.api.loadUnit('Length');
     console.log(unit);
     this.setState({
       data: unit,
+      subunit : subUnit
     });
   }
 
@@ -37,6 +41,18 @@ class QuantityButtons extends Component {
     });
   }
 
+  setDisabledUnit = (unit) => {
+    this.setState({
+      disableUnit : unit
+    })
+  }
+
+  toggleClass = (index) => {
+    // const currentState = this.state.active;
+    // var active = this.state.active[index];
+    this.setState({ index : index });
+};
+
   render() {
     return (
       <div>
@@ -46,18 +62,22 @@ class QuantityButtons extends Component {
         <div className="quantity-button">
           {this.state.data.map((data, index) => (
             <div
-              className={data}
+              className={data + this.state.index}
               tabIndex="0"
-              onClick={() => this.changeSubunit(index)}
+              onClick={() => {this.toggleClass(index);this.changeSubunit(index);}}
             >
+              {console.log(data + index)}
               <p>{data}</p>
             </div>
           ))}
         </div>
+        {console.log(this.state.disableUnit)}
         <div className="quantity-button">
           <Conversion
             heading="FROM"
             unit={this.state.subunit}
+            disable={this.setDisabledUnit}
+            disableSelectedUnit={this.state.disableUnit}
             ref={this.fromInput}
             result={this.toInput}
           />
@@ -65,6 +85,8 @@ class QuantityButtons extends Component {
           <Conversion
             heading="TO"
             unit={this.state.subunit}
+            disable={this.setDisabledUnit}
+            disableSelectedUnit={this.state.disableUnit}
             ref={this.toInput}
             result={this.fromInput}
           />
