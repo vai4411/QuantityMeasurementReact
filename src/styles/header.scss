@@ -16,14 +16,22 @@ $inactive-weight-icon:url('../asserts/weight.png');
 	margin-left: 6%;
 }
 
+@mixin  changeIconSize {
+	height: 119px;
+	width: 148px;
+	outline: none;
+}
+
 @mixin  buttonIcon {
+	width: 150px;
+	height: 120px;
 	background-position: center;
 	background-position-y: 35%;
 	background-repeat: no-repeat;
-	width: 11.8vw;
-	height: 10vw;
+	margin-bottom: 6%;
 	background-color: $white;
 	border-radius: 6%;
+	margin-left: 3vw;
 	p{
 		text-align: center;
 		margin-top: 60%;
@@ -34,10 +42,10 @@ $inactive-weight-icon:url('../asserts/weight.png');
 }
 
 @mixin scaleIcon {
+	@include changeIconSize();
 	background-image: $active-scale-icon;
 	@include buttonIcon();
 	border: 1px solid $scale-color;
-	outline: none;
 	background-color: $scale-background;
 	p{
 		color: $scale-color;
@@ -45,10 +53,11 @@ $inactive-weight-icon:url('../asserts/weight.png');
 }
 
 @mixin hotIcon {
+	@include changeIconSize();
 	background-image: $active-hot-icon;
 	@include buttonIcon();
+	height: 118px;
 	border: 1px solid $hot-color;
-	outline: none;
 	background-color: $hot-background;
 	p{
 		color: $hot-color;
@@ -56,10 +65,10 @@ $inactive-weight-icon:url('../asserts/weight.png');
 }
 
 @mixin beakerIcon {
+	@include changeIconSize();
 	background-image: $active-beaker-icon;
 	@include buttonIcon();
 	border: 1px solid $beaker-color;
-	outline: none;
 	background-color: $beaker-background;
 	p{
 		color: $beaker-color;
@@ -67,10 +76,10 @@ $inactive-weight-icon:url('../asserts/weight.png');
 }
 
 @mixin weightIcon {
+	@include changeIconSize();
 	background-image: $active-weight-icon;
 	@include buttonIcon();
 	border: 1px solid $weight-color;
-	outline: none;
 	background-color: $weight-background;
 	p{
 		color: $weight-color;
@@ -79,7 +88,7 @@ $inactive-weight-icon:url('../asserts/weight.png');
 
 .main-window{
 	background-color: $light-white-grey;
-	height: 100vh;
+	height: auto;
 }
 
 .header{
@@ -120,19 +129,21 @@ $inactive-weight-icon:url('../asserts/weight.png');
 
 .quantity-button{
 	display: flex;
-	justify-content: space-between;
-	position: relative;
-	width: 50%;
-	margin-left: 25%;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: auto;
+	width: 45%;
+}
+
+.quantity-buttonInput{
+	display: flex;
+	justify-content: center;
+	flex-wrap: nowrap;
+	margin: auto;
 }
 
 .default-button{
 	@include scaleIcon();
-}
-
-img{
-	width: 11.8vw;
-	height: 10vw;
 }
 
 .Length{
@@ -199,7 +210,7 @@ img{
 
 .type{
 	margin-top: 5%;
-	margin-left: 27.7%;
+	margin-left: 28.8vw;
 	font-weight: bold;
 }
 
@@ -207,17 +218,25 @@ img{
 	margin-top: -1%;
 }
 
+.conversion-opration{
+	outline: 1px solid $border-color;
+	min-width: 150px;
+}
+
 .conversion{
+	display: flex;
+	flex-direction: column;
 	padding-top: 2%;
-	position: relative;
 	margin-left: 2%;
 	input{
 		@include convert();
-		border-color: 1px solid $border-color;
+		border: none;
+		border-bottom: 1px solid $border-color;
 		margin-left: -0.27%;
 		font-weight: 600;
 		font-size: 180%;
 		padding: 0em 0em 0em 0.9em;
+		max-width: 100%;
 	}
 	p{
 		color: $border-color;
@@ -238,7 +257,7 @@ img{
 		max-width: 100%;
 		box-sizing: border-box;
 		margin: 0;
-		border: 1px solid $feild-color;
+		border: none;
 		background-repeat: no-repeat, repeat;
 		background-position: right .7em top 50%, 0 0;
 		background-size: .65em auto, 100%;

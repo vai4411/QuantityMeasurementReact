@@ -86,8 +86,7 @@ class QuantityButtons extends Component {
             </div>
           ))}
         </div>
-        {/* {console.log(this.state.disableUnit)} */}
-        <div className="quantity-button">
+        <div className="quantity-buttonInput">
           <Conversion
             heading="FROM"
             unit={this.state.subunit}

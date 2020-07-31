@@ -37,6 +37,7 @@ class Conversion extends Component {
     return (
       <div className="conversion">
         <p>{this.props.heading}</p>
+        <div className="conversion-opration">
         <input
           type="number"
           ref={this.textInput}
@@ -53,6 +54,7 @@ class Conversion extends Component {
             return <option>{data}</option>;
           })}
         </select>
+        </div>
       </div>
     );
   }
