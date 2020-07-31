@@ -13,9 +13,6 @@ class Conversion extends Component {
     var quantity = this.textInput.current.value;
     var fromUnit = this.selectInput.current.value;
     var toUnit = this.props.result.current.selectInput.current.value;
-    console.log(quantity);
-    console.log(fromUnit);
-    console.log(toUnit);
     this.convertUnits(fromUnit, quantity, toUnit);
   };
 
@@ -34,13 +31,7 @@ class Conversion extends Component {
     var result = this.props.result.current.textInput.current;
     result.value = val;
     this.props.conversionData(fromUnit, quantity, toUnit,result.value)
-    console.log(result.value)
   }
-
-  // conversionRecord = () => {
-  //   var result = this.changeInput();
-  //   console.log(result)
-  // }
 
   render() {
     return (
@@ -50,7 +41,6 @@ class Conversion extends Component {
           type="number"
           ref={this.textInput}
           onChange={() => {this.changeInput();
-          // this.conversionRecord();
         }}
         ></input>
         <select

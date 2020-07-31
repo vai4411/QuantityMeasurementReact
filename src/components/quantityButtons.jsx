@@ -20,7 +20,6 @@ class QuantityButtons extends Component {
   async loadUnits() {
     const unit = await this.api.loadMainUnit();
     var subUnit = await this.api.loadUnit("Length");
-    console.log(unit);
     this.setState({
       data: unit,
       subunit: subUnit,
@@ -65,7 +64,6 @@ class QuantityButtons extends Component {
 
   conversionData =(fromUnit,toUnit,quantity,result) => {
     this.props.conversions(fromUnit,toUnit,quantity,result)
-    console.log(fromUnit + " " + toUnit + " " + quantity + " " + result)
   }
 
   render() {

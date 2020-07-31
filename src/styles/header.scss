@@ -22,8 +22,6 @@ $inactive-weight-icon:url('../asserts/weight.png');
 	background-repeat: no-repeat;
 	width: 11.8vw;
 	height: 10vw;
-	// width: 300px;
-	// height: 130px;
 	background-color: $white;
 	border-radius: 6%;
 	p{
@@ -113,9 +111,10 @@ $inactive-weight-icon:url('../asserts/weight.png');
 	background-color: $blue;
 	font-size: 160%;
 	color: $white;
+	justify-content: center;
 	p{
-	margin-left: 28%;
-	word-spacing: 5px;
+		word-spacing: 5px;
+		flex-wrap: wrap;
 	}
 }
 
@@ -123,7 +122,6 @@ $inactive-weight-icon:url('../asserts/weight.png');
 	display: flex;
 	justify-content: space-between;
 	position: relative;
-	// flex-wrap: wrap-reverse;
 	width: 50%;
 	margin-left: 25%;
 }
