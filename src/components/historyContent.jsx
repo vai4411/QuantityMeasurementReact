@@ -1,6 +1,7 @@
 import React from "react";
 
-function historyContent() {
+function historyContent(props) {
+
   var history = [
     {
       baseunit: "Length",
@@ -27,20 +28,20 @@ function historyContent() {
 
   return (
     <div>
-      <th>BASEUNIT</th>
+      {/* <th>BASEUNIT</th> */}
       <th>FROM</th>
       <th>TO</th>
       <th>VALUE</th>
       <th>RESULT</th>
-      {history.map((data) => (
+      {props.data.map((data) => (
         <div>
-          <td>{data.baseunit}</td>
-          <td>{data.from}</td>
-          <td>{data.to}</td>
-          <td>{data.value}</td>
-          <td>{data.result}</td>
+          <td>{data}</td>
+          <td>{props.data.toUnit}</td>
+          <td>{props.data.quantity}</td>
+          <td>{props.data.result}</td>
+          {/* <td>{data.result}</td> */}
         </div>
-      ))}
+      ))} 
     </div>
   );
 }

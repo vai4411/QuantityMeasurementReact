@@ -63,6 +63,11 @@ class QuantityButtons extends Component {
     }
   };
 
+  conversionData =(fromUnit,toUnit,quantity,result) => {
+    this.props.conversions(fromUnit,toUnit,quantity,result)
+    console.log(fromUnit + " " + toUnit + " " + quantity + " " + result)
+  }
+
   render() {
     return (
       <div>
@@ -79,27 +84,26 @@ class QuantityButtons extends Component {
                 this.changeSubunit(index);
               }}
             >
-              {console.log(data + index)}
               <p>{data}</p>
             </div>
           ))}
         </div>
-        {console.log(this.state.disableUnit)}
+        {/* {console.log(this.state.disableUnit)} */}
         <div className="quantity-button">
           <Conversion
             heading="FROM"
             unit={this.state.subunit}
             ref={this.fromInput}
             result={this.toInput}
+            conversionData={this.conversionData}
           />
-          {console.log(this.toInput)}
           <Conversion
             heading="TO"
             unit={this.state.subunit}
             ref={this.toInput}
             result={this.fromInput}
+            conversionData={this.conversionData}
           />
-          {console.log(this.toInput)}
         </div>
       </div>
     );

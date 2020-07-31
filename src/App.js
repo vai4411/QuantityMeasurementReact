@@ -7,6 +7,26 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HistoryDetails from "./components/historyContent";
 
 class App extends React.Component {
+
+  constructor(props){
+    super(props)
+      this.state = {
+       fromUnit : [], toUnit : [], quantity : [], result : []
+      }
+  }
+
+  data = {
+    fromUnit : "", toUnit : "", quantity : "", result : ""
+  };
+
+  unitConversionRecord = (fromUnit,toUnit,quantity,result) => {
+      this.setState({
+       fromUnit : [...this.state.fromUnit,fromUnit], toUnit : [...this.state.toUnit,toUnit],
+       quantity : [...this.state.quantity,quantity], result : [...this.state.result,result]
+      })
+      console.log(this.state.fromUnit.length + " " +toUnit+ " " +quantity+ " "+result)
+  }
+
   render() {
     var Units = [
       {
@@ -45,12 +65,17 @@ class App extends React.Component {
                 <div>
                   <div className="choose-type"></div>
                   <div>
-                    <Quantity units={Units} />
+                    <Quantity units={Units} conversions={this.unitConversionRecord}/>
                   </div>
                 </div>
               )}
             />
-            <Route path="/history" exact component={HistoryDetails} />
+            <Route path="/history" exact
+            render={() => (
+              <HistoryDetails data={this.state.fromUnit}
+              />
+            )}
+             />
           </Switch>
         </Router>
       </div>

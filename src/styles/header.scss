@@ -4,7 +4,8 @@ $active-hot-icon:url('../asserts/hot-1.svg');
 $inactive-hot-icon:url('../asserts/hot.svg');
 $active-beaker-icon:url('../asserts/beaker.svg');
 $inactive-beaker-icon:url('../asserts/beaker-1.svg');
-$inactive-weight-icon:url('../asserts/weight.svg');
+$active-weight-icon:url('../asserts/weight-1.png');
+$inactive-weight-icon:url('../asserts/weight.png');
 
 @import './colors/colorCodes.scss';
 @import './fontStyles/fontStyles.scss';
@@ -64,6 +65,17 @@ $inactive-weight-icon:url('../asserts/weight.svg');
 	background-color: $beaker-background;
 	p{
 		color: $beaker-color;
+	}
+}
+
+@mixin weightIcon {
+	background-image: $active-weight-icon;
+	@include buttonIcon();
+	border: 1px solid $weight-color;
+	outline: none;
+	background-color: $weight-background;
+	p{
+		color: $weight-color;
 	}
 }
 
@@ -169,13 +181,15 @@ img{
 @for $var from 0 to 4 {
 	.Weight#{$var} {
 		background-image: $inactive-weight-icon;
+		width: 50pt;
+		height: 50pt;
 	@include buttonIcon();
 	}
-	.Weight#{$var}:hover{@include beakerIcon();}
+	.Weight#{$var}:hover{@include weightIcon();}
 }
 
 .Weight1{
-	@include beakerIcon();
+	@include weightIcon();
 }
 
 .quantity{

@@ -33,7 +33,14 @@ class Conversion extends Component {
     const val = await this.api.convert(fromUnit, quantity, toUnit);
     var result = this.props.result.current.textInput.current;
     result.value = val;
+    this.props.conversionData(fromUnit, quantity, toUnit,result.value)
+    console.log(result.value)
   }
+
+  // conversionRecord = () => {
+  //   var result = this.changeInput();
+  //   console.log(result)
+  // }
 
   render() {
     return (
@@ -42,7 +49,9 @@ class Conversion extends Component {
         <input
           type="number"
           ref={this.textInput}
-          onChange={this.changeInput}
+          onChange={() => {this.changeInput();
+          // this.conversionRecord();
+        }}
         ></input>
         <select
           ref={this.selectInput}
