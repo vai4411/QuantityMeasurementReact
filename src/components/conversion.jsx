@@ -7,6 +7,12 @@ class Conversion extends Component {
     this.selectInput = React.createRef();
     this.textInput = React.createRef();
     this.api = new Api();
+    this.state = {
+      fromUnit: "",
+      toUnit: "",
+      quantity: "",
+      result: "",
+    };
   }
 
   changeInput = () => {
@@ -30,7 +36,13 @@ class Conversion extends Component {
     const val = await this.api.convert(fromUnit, quantity, toUnit);
     var result = this.props.result.current.textInput.current;
     result.value = val;
-    this.props.conversionData(fromUnit, quantity, toUnit,result.value)
+    this.setState({
+      fromUnit: fromUnit,
+      toUnit: toUnit,
+      quantity: quantity,
+      result: result.value,
+    });
+    this.props.conversionData(this.state);
   }
 
   render() {
@@ -38,22 +50,23 @@ class Conversion extends Component {
       <div className="conversion">
         <p>{this.props.heading}</p>
         <div className="conversion-opration">
-        <input
-          type="number"
-          ref={this.textInput}
-          onChange={() => {this.changeInput();
-        }}
-        ></input>
-        <select
-          ref={this.selectInput}
-          onChange={() => {
-            this.changeInput();
-          }}
-        >
-          {this.props.unit.map((data, index) => {
-            return <option>{data}</option>;
-          })}
-        </select>
+          <input
+            type="number"
+            ref={this.textInput}
+            onChange={() => {
+              this.changeInput();
+            }}
+          ></input>
+          <select
+            ref={this.selectInput}
+            onChange={() => {
+              this.changeInput();
+            }}
+          >
+            {this.props.unit.map((data, index) => {
+              return <option>{data}</option>;
+            })}
+          </select>
         </div>
       </div>
     );

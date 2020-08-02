@@ -7,25 +7,19 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HistoryDetails from "./components/historyContent";
 
 class App extends React.Component {
-
-  constructor(props){
-    super(props)
-      this.state = {
-       fromUnit : [], toUnit : [], quantity : [], result : []
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: [],
+    };
   }
 
-  data = {
-    fromUnit : "", toUnit : "", quantity : "", result : ""
+  unitConversionRecord = (data) => {
+    this.setState({
+      history: [...this.state.history, data],
+    });
+    console.log(this.state.history);
   };
-
-  unitConversionRecord = (fromUnit,toUnit,quantity,result) => {
-      this.setState({
-       fromUnit : [...this.state.fromUnit,fromUnit], toUnit : [...this.state.toUnit,toUnit],
-       quantity : [...this.state.quantity,quantity], result : [...this.state.result,result]
-      })
-      console.log(this.state.fromUnit.length + " " +toUnit+ " " +quantity+ " "+result)
-  }
 
   render() {
     var Units = [
@@ -65,17 +59,20 @@ class App extends React.Component {
                 <div>
                   <div className="choose-type"></div>
                   <div>
-                    <Quantity units={Units} conversions={this.unitConversionRecord}/>
+                    <Quantity
+                      units={Units}
+                      conversions={this.unitConversionRecord}
+                    />
                   </div>
                 </div>
               )}
             />
-            <Route path="/history" exact
-            render={() => (
-              <HistoryDetails data={this.state.fromUnit}
-              />
-            )}
-             />
+            {console.log(this.state)}
+            <Route
+              path="/history"
+              exact
+              render={() => <HistoryDetails data={this.state.history} />}
+            />
           </Switch>
         </Router>
       </div>

@@ -62,9 +62,9 @@ class QuantityButtons extends Component {
     }
   };
 
-  conversionData =(fromUnit,toUnit,quantity,result) => {
-    this.props.conversions(fromUnit,toUnit,quantity,result)
-  }
+  conversionData = (data) => {
+    this.props.conversions(data);
+  };
 
   render() {
     return (

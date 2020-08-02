@@ -1,8 +1,12 @@
 import React from "react";
 
-function historyContent(props) {
+class historyContent extends React.Component {
 
-  var history = [
+  constructor(props){
+    super(props)
+  }
+
+  history = [
     {
       baseunit: "Length",
       from: "Feet",
@@ -26,24 +30,24 @@ function historyContent(props) {
     },
   ];
 
+  render(){
   return (
     <div>
-      {/* <th>BASEUNIT</th> */}
       <th>FROM</th>
       <th>TO</th>
       <th>VALUE</th>
       <th>RESULT</th>
-      {props.data.map((data) => (
+      {this.props.data.map((data) => (
         <div>
-          <td>{data}</td>
-          <td>{props.data.toUnit}</td>
-          <td>{props.data.quantity}</td>
-          <td>{props.data.result}</td>
-          {/* <td>{data.result}</td> */}
+          <td>{data.fromUnit}</td>
+          <td>{data.toUnit}</td>
+          <td>{data.quantity}</td>
+          <td>{data.result}</td>
         </div>
-      ))} 
+       ))}
     </div>
   );
+  }
 }
 
 export default historyContent;
