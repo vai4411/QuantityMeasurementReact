@@ -11,14 +11,17 @@ class App extends React.Component {
     super(props);
     this.state = {
       history: [],
+      data: [],
     };
   }
 
   unitConversionRecord = (data) => {
+    var value = JSON.parse(localStorage.getItem("history"));
     this.setState({
       history: [...this.state.history, data],
+      data: value,
     });
-    console.log(this.state.history);
+    localStorage.setItem("history", JSON.stringify(this.state.history));
   };
 
   render() {
@@ -71,7 +74,7 @@ class App extends React.Component {
             <Route
               path="/history"
               exact
-              render={() => <HistoryDetails data={this.state.history} />}
+              render={() => <HistoryDetails data={this.state.data} />}
             />
           </Switch>
         </Router>
