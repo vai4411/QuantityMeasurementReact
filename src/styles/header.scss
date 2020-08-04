@@ -302,11 +302,12 @@ button {
   left: 50%;
   align-items: center;
   margin-top: 5vh;
-  padding: 0.5% 2% 0.5% 2%;
+  padding: 0.5% 1% 0.5% 1%;
   background-color: $blue;
   color: $white;
   outline: none;
   border: 1px solid $blue;
+  word-spacing: 5px;
   &:hover {
     color: $blue;
     background-color: $white;

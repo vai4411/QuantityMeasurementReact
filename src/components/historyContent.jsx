@@ -49,7 +49,7 @@ class historyContent extends React.Component {
           </div>
         ))}
         <button onClick={this.clearData}>
-          CLEAR
+          CLEAR HISTORY
         </button>
       </div>
     );
