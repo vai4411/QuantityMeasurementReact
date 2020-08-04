@@ -29,6 +29,10 @@ class historyContent extends React.Component {
     },
   ];
 
+  clearData = () => {
+    this.props.clear();
+  };
+
   render() {
     return (
       <div>
@@ -44,6 +48,7 @@ class historyContent extends React.Component {
             <td>{data.result}</td>
           </div>
         ))}
+        <button onClick={this.clearData}>CLEAR</button>
       </div>
     );
   }

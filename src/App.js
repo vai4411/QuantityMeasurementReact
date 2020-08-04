@@ -11,17 +11,25 @@ class App extends React.Component {
     super(props);
     this.state = {
       history: [],
-      data: [],
+      data: JSON.parse(localStorage.getItem("history")) || [],
     };
   }
 
   unitConversionRecord = (data) => {
-    var value = JSON.parse(localStorage.getItem("history"));
     this.setState({
-      history: [...this.state.history, data],
-      data: value,
+      history: [...this.state.data, data],
     });
     localStorage.setItem("history", JSON.stringify(this.state.history));
+    this.setState({
+      data: JSON.parse(localStorage.getItem("history")),
+    });
+  };
+
+  clearHistory = (data) => {
+    localStorage.clear();
+    this.setState({
+      data: [],
+    });
   };
 
   render() {
@@ -74,7 +82,12 @@ class App extends React.Component {
             <Route
               path="/history"
               exact
-              render={() => <HistoryDetails data={this.state.data} />}
+              render={() => (
+                <HistoryDetails
+                  data={this.state.data}
+                  clear={this.clearHistory}
+                />
+              )}
             />
           </Switch>
         </Router>
