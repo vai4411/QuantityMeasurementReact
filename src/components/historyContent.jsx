@@ -35,7 +35,7 @@ class historyContent extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='history-button'>
         <th>FROM</th>
         <th>TO</th>
         <th>VALUE</th>
@@ -48,7 +48,9 @@ class historyContent extends React.Component {
             <td>{data.result}</td>
           </div>
         ))}
-        <button onClick={this.clearData}>CLEAR</button>
+        <button onClick={this.clearData}>
+          CLEAR
+        </button>
       </div>
     );
   }

@@ -1,407 +1,437 @@
-$active-scale-icon:url('../asserts/scale.svg');
-$inactive-scale-icon:url('../asserts/scale-1.svg');
-$active-hot-icon:url('../asserts/hot-1.svg');
-$inactive-hot-icon:url('../asserts/hot.svg');
-$active-beaker-icon:url('../asserts/beaker.svg');
-$inactive-beaker-icon:url('../asserts/beaker-1.svg');
-$active-weight-icon:url('../asserts/weight-1.png');
-$inactive-weight-icon:url('../asserts/weight.png');
+$active-scale-icon: url("../asserts/scale.svg");
+$inactive-scale-icon: url("../asserts/scale-1.svg");
+$active-hot-icon: url("../asserts/hot-1.svg");
+$inactive-hot-icon: url("../asserts/hot.svg");
+$active-beaker-icon: url("../asserts/beaker.svg");
+$inactive-beaker-icon: url("../asserts/beaker-1.svg");
+$active-weight-icon: url("../asserts/weight-1.png");
+$inactive-weight-icon: url("../asserts/weight.png");
 
-@import './colors/colorCodes.scss';
-@import './fontStyles/fontStyles.scss';
+@import "./colors/colorCodes.scss";
+@import "./fontStyles/fontStyles.scss";
 
 @mixin convert {
-	height: 50px;
-	width: 257px;
-	margin-left: 6%;
+  height: 50px;
+  width: 257px;
+  margin-left: 6%;
 }
 
-@mixin  changeIconSize {
-	height: 119px;
-	width: 148px;
-	outline: none;
+@mixin changeIconSize {
+  height: 119px;
+  width: 148px;
+  outline: none;
 }
 
-@mixin  buttonIcon {
-	width: 150px;
-	height: 120px;
-	background-position: center;
-	background-position-y: 35%;
-	background-repeat: no-repeat;
-	margin-bottom: 6%;
-	background-color: $white;
-	border-radius: 6%;
-	margin-left: 3vw;
-	p{
-		text-align: center;
-		margin-top: 60%;
-		color: $feild-color;
-		font-weight: bolder;
-		font-size: 1vw;
-	}
+@mixin buttonIcon {
+  width: 150px;
+  height: 120px;
+  background-position: center;
+  background-position-y: 35%;
+  background-repeat: no-repeat;
+  margin-bottom: 6%;
+  background-color: $white;
+  border-radius: 6%;
+  margin-left: 3vw;
+  p {
+    text-align: center;
+    margin-top: 60%;
+    color: $feild-color;
+    font-weight: bolder;
+    font-size: 1vw;
+  }
 }
 
 @mixin scaleIcon {
-	@include changeIconSize();
-	background-image: $active-scale-icon;
-	@include buttonIcon();
-	border: 1px solid $scale-color;
-	background-color: $scale-background;
-	p{
-		color: $scale-color;
-	}
+  @include changeIconSize();
+  background-image: $active-scale-icon;
+  @include buttonIcon();
+  border: 1px solid $scale-color;
+  background-color: $scale-background;
+  p {
+    color: $scale-color;
+  }
 }
 
 @mixin hotIcon {
-	@include changeIconSize();
-	background-image: $active-hot-icon;
-	@include buttonIcon();
-	height: 118px;
-	border: 1px solid $hot-color;
-	background-color: $hot-background;
-	p{
-		color: $hot-color;
-	}
+  @include changeIconSize();
+  background-image: $active-hot-icon;
+  @include buttonIcon();
+  height: 118px;
+  border: 1px solid $hot-color;
+  background-color: $hot-background;
+  p {
+    color: $hot-color;
+  }
 }
 
 @mixin beakerIcon {
-	@include changeIconSize();
-	background-image: $active-beaker-icon;
-	@include buttonIcon();
-	border: 1px solid $beaker-color;
-	background-color: $beaker-background;
-	p{
-		color: $beaker-color;
-	}
+  @include changeIconSize();
+  background-image: $active-beaker-icon;
+  @include buttonIcon();
+  border: 1px solid $beaker-color;
+  background-color: $beaker-background;
+  p {
+    color: $beaker-color;
+  }
 }
 
 @mixin weightIcon {
-	@include changeIconSize();
-	background-image: $active-weight-icon;
-	@include buttonIcon();
-	border: 1px solid $weight-color;
-	background-color: $weight-background;
-	p{
-		color: $weight-color;
-	}
+  @include changeIconSize();
+  background-image: $active-weight-icon;
+  @include buttonIcon();
+  border: 1px solid $weight-color;
+  background-color: $weight-background;
+  p {
+    color: $weight-color;
+  }
 }
 
-.main-window{
-	background-color: $light-white-grey;
-	height: auto;
+.main-window {
+  background-color: $light-white-grey;
+  height: auto;
 }
 
-.header{
-	height: 4pc;
-	display: flex;
-	justify-content: space-between;
-	background-color: $white;
-	a{
-		color: $black;
-		text-decoration: none;
-		font-size: 120%;
-		font-weight: bolder;
-		font-family: $lato;
-		margin-top: 1%;
-		margin-left: 15%;
-	}
-	li{
-		list-style: none;
-		font-size: 70%;
-		margin-top: 17%;
-		font-family: $lato;
-		font-weight: light;
-		margin-left: -430%;
-	}
+.header {
+  height: 4pc;
+  display: flex;
+  justify-content: space-between;
+  background-color: $white;
+  a {
+    color: $black;
+    text-decoration: none;
+    font-size: 120%;
+    font-weight: bolder;
+    font-family: $lato;
+    margin-top: 1%;
+    margin-left: 15%;
+  }
+  li {
+    list-style: none;
+    font-size: 70%;
+    margin-top: 17%;
+    font-family: $lato;
+    font-weight: light;
+    margin-left: -430%;
+  }
 }
 
-.welcome{
-	display: flex;
-	background-color: $blue;
-	font-size: 160%;
-	color: $white;
-	justify-content: center;
-	p{
-		word-spacing: 5px;
-		flex-wrap: wrap;
-	}
+.welcome {
+  display: flex;
+  background-color: $blue;
+  font-size: 160%;
+  color: $white;
+  justify-content: center;
+  p {
+    word-spacing: 5px;
+    flex-wrap: wrap;
+  }
 }
 
-.quantity-button{
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	margin: auto;
-	width: 45%;
+.quantity-button {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 45%;
 }
 
-.quantity-buttonInput{
-	display: flex;
-	justify-content: center;
-	flex-wrap: nowrap;
-	margin: auto;
+.quantity-buttonInput {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin: auto;
 }
 
-.default-button{
-	@include scaleIcon();
+.default-button {
+  @include scaleIcon();
 }
 
-.Length{
-	background-image: $inactive-scale-icon;
-	@include buttonIcon();
-}
-
-@for $var from 0 to 4 {
-	.Length#{$var} {
-		background-image: $inactive-scale-icon;
-	@include buttonIcon();
-	}
-	.Length#{$var}:hover{@include scaleIcon();}
-}
-
-.Length0{
-	@include scaleIcon();
+.Length {
+  background-image: $inactive-scale-icon;
+  @include buttonIcon();
 }
 
 @for $var from 0 to 4 {
-	.Temperature#{$var} {
-		background-image:  $inactive-hot-icon;
-	@include buttonIcon();
-	}
-	.Temperature#{$var}:hover{@include hotIcon();}
+  .Length#{$var} {
+    background-image: $inactive-scale-icon;
+    @include buttonIcon();
+  }
+  .Length#{$var}:hover {
+    @include scaleIcon();
+  }
 }
 
-.Temperature3{
-	@include hotIcon();
-}
-
-@for $var from 0 to 4 {
-	.Volume#{$var} {
-		background-image: $inactive-beaker-icon;
-	@include buttonIcon();
-	}
-	.Volume#{$var}:hover{@include beakerIcon();}
-}
-
-.Volume2{
-	@include beakerIcon();
+.Length0 {
+  @include scaleIcon();
 }
 
 @for $var from 0 to 4 {
-	.Weight#{$var} {
-		background-image: $inactive-weight-icon;
-		width: 50pt;
-		height: 50pt;
-	@include buttonIcon();
-	}
-	.Weight#{$var}:hover{@include weightIcon();}
+  .Temperature#{$var} {
+    background-image: $inactive-hot-icon;
+    @include buttonIcon();
+  }
+  .Temperature#{$var}:hover {
+    @include hotIcon();
+  }
 }
 
-.Weight1{
-	@include weightIcon();
+.Temperature3 {
+  @include hotIcon();
 }
 
-.quantity{
-	width: fit-content;
-	border-style: none;
-	background-color: transparent;
-	outline: none;
+@for $var from 0 to 4 {
+  .Volume#{$var} {
+    background-image: $inactive-beaker-icon;
+    @include buttonIcon();
+  }
+  .Volume#{$var}:hover {
+    @include beakerIcon();
+  }
 }
 
-.type{
-	margin-top: 5%;
-	margin-left: 28.8vw;
-	font-weight: bold;
+.Volume2 {
+  @include beakerIcon();
 }
 
-.choose-type{
-	margin-top: -1%;
+@for $var from 0 to 4 {
+  .Weight#{$var} {
+    background-image: $inactive-weight-icon;
+    width: 50pt;
+    height: 50pt;
+    @include buttonIcon();
+  }
+  .Weight#{$var}:hover {
+    @include weightIcon();
+  }
 }
 
-.conversion-opration{
-	outline: 1px solid $border-color;
-	min-width: 150px;
+.Weight1 {
+  @include weightIcon();
 }
 
-.conversion{
-	display: flex;
-	flex-direction: column;
-	padding-top: 2%;
-	margin-left: 2%;
-	input{
-		@include convert();
-		border: none;
-		border-bottom: 1px solid $border-color;
-		margin-left: -0.27%;
-		font-weight: 600;
-		font-size: 180%;
-		padding: 0em 0em 0em 0.9em;
-		max-width: 100%;
-	}
-	p{
-		color: $border-color;
-		font-weight: 550;
-		position: relative;
-		font-size: 80%;
-		color: $black;
-	}
-	select {
-		@include convert();
-		width: 100%;
-		height: 50px;
-		display: block;
-		font-size: 14px;
-		font-family: sans-serif;
-		font-weight: 600;
-		padding: .6em 9.9em .5em 1.9em;
-		max-width: 100%;
-		box-sizing: border-box;
-		margin: 0;
-		border: none;
-		background-repeat: no-repeat, repeat;
-		background-position: right .7em top 50%, 0 0;
-		background-size: .65em auto, 100%;
-	}
-	select:focus {
-		border-color: $feild-color;
-		outline: none;
-	}
-	select option {
-		font-weight:600;
-	}
+.quantity {
+  width: fit-content;
+  border-style: none;
+  background-color: transparent;
+  outline: none;
 }
 
-td{
-	border: 1px solid $grey;
-	width: 25vw;
-	text-align: center;
-	height: 3vw;
+.type {
+  margin-top: 5%;
+  margin-left: 28.8vw;
+  font-weight: bold;
 }
 
-th{
-	width: 25vw;
-	height: 2.5vw;
+.choose-type {
+  margin-top: -1%;
+}
+
+.conversion-opration {
+  outline: 1px solid $border-color;
+  min-width: 150px;
+}
+
+.conversion {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2%;
+  margin-left: 2%;
+  input {
+    @include convert();
+    border: none;
+    border-bottom: 1px solid $border-color;
+    margin-left: -0.27%;
+    font-weight: 600;
+    font-size: 180%;
+    padding: 0em 0em 0em 0.9em;
+    max-width: 100%;
+  }
+  p {
+    color: $border-color;
+    font-weight: 550;
+    position: relative;
+    font-size: 80%;
+    color: $black;
+  }
+  select {
+    @include convert();
+    width: 100%;
+    height: 50px;
+    display: block;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 600;
+    padding: 0.6em 9.9em 0.5em 1.9em;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    background-repeat: no-repeat, repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+  }
+  select:focus {
+    border-color: $feild-color;
+    outline: none;
+  }
+  select option {
+    font-weight: 600;
+  }
+}
+
+td {
+  border: 1px solid $grey;
+  width: 25vw;
+  text-align: center;
+  height: 3vw;
+}
+
+th {
+  width: 25vw;
+  height: 2.5vw;
+}
+
+.history-button {
+  background-color: $light-white-grey;
+  height: 77vh;
+}
+
+button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  align-items: center;
+  margin-top: 5vh;
+  padding: 0.5% 2% 0.5% 2%;
+  background-color: $blue;
+  color: $white;
+  outline: none;
+  border: 1px solid $blue;
+  &:hover {
+    color: $blue;
+    background-color: $white;
+  }
 }
 
 @media only screen and (max-width: 608px) {
-	.welcome{
-		display: flex;
-		p{
-			margin-left: 20%;
-		}
-	}
-
-	.conversion{
-		select{
-			margin-left: -0.1%;
-		}
-	}
+  .welcome {
+    display: flex;
+    p {
+      margin-left: 20%;
+    }
   }
 
-  @media only screen and (max-width: 568px) {
-	  .main-window{
-		  height:100%;
-	  }
-	  .header{
-		  li{
-		  margin-left: -200%;
-		  }
-	  }
-	  .welcome{
-		  p{
-			  margin-left: 12%;
-		  }
-	  }
-	  .choose-type{
-		  margin-left: 11%;
-	  }
-	  .quantity-button{
-		  flex-direction: column;
-		  margin-left: 35%;
-	  }
-	  .conversion{
-		  input{
-			  width: 28vw;
-		  }
-		  select{
-			  width: 33.5vw;
-			  font-size: 60%;
-		  }
-	  }
+  .conversion {
+    select {
+      margin-left: -0.1%;
+    }
   }
-
-  @media only screen and (max-width: 475px){
-	.welcome{
-		P{
-			margin-left: 7%;
-		}
-	}
-	.conversion{
-		input{
-			width: 31vw;
-		}
-		select{
-			width: 37vw;
-			font-size: 60%;
-		}
-	}
-  }
-
-  @media only screen and (max-width: 475px){
-	  .welcome{
-		  text-align: center;
-	  }
-	  .quantity-button{
-		margin-left: 26%;
-	  }
-	  .conversion{
-		  select{
-			  width: 37.5vw;
-		  }
-	  }
-  }
-
-  @media only screen and (max-width: 422px){
-	  .conversion{
-		  width: 105%;
-		  input{
-			  width: 65%;
-		  }
-		  select{
-		  width: 78%;
-	  }
-	}
-  }
-
-  @media only screen and (max-width: 393px){
-	  .conversion{
-		  input{
-			  width: 70%;
-		  }
-		  select{
-			  width: 84%;
-		  }
-	  }
-  }
-
-  @media only screen and (max-width: 375px){
-	.conversion{
-		input{
-			width: 73%;
-		}
-		select{
-			width: 88%;
-		}
-	}
 }
 
-@media only screen and (max-width: 375px){
-	.conversion{
-		input{
-			width: 85%;
-		}
-		select{
-			width: 690vw;
-		}
-	}
+@media only screen and (max-width: 568px) {
+  .main-window {
+    height: 100%;
+  }
+  .header {
+    li {
+      margin-left: -200%;
+    }
+  }
+  .welcome {
+    p {
+      margin-left: 12%;
+    }
+  }
+  .choose-type {
+    margin-left: 11%;
+  }
+  .quantity-button {
+    flex-direction: column;
+    margin-left: 35%;
+  }
+  .conversion {
+    input {
+      width: 28vw;
+    }
+    select {
+      width: 33.5vw;
+      font-size: 60%;
+    }
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .welcome {
+    P {
+      margin-left: 7%;
+    }
+  }
+  .conversion {
+    input {
+      width: 31vw;
+    }
+    select {
+      width: 37vw;
+      font-size: 60%;
+    }
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .welcome {
+    text-align: center;
+  }
+  .quantity-button {
+    margin-left: 26%;
+  }
+  .conversion {
+    select {
+      width: 37.5vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 422px) {
+  .conversion {
+    width: 105%;
+    input {
+      width: 65%;
+    }
+    select {
+      width: 78%;
+    }
+  }
+}
+
+@media only screen and (max-width: 393px) {
+  .conversion {
+    input {
+      width: 70%;
+    }
+    select {
+      width: 84%;
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .conversion {
+    input {
+      width: 73%;
+    }
+    select {
+      width: 88%;
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .conversion {
+    input {
+      width: 85%;
+    }
+    select {
+      width: 690vw;
+    }
+  }
 }
